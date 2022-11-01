@@ -37,14 +37,13 @@ def index():
 @app.route('/', methods=['POST'])   # http://xxx/が受け入れるメソッドをPOSTに指定
 def add_channel():
     uid = session.get('uid')
-    print(uid)
     if uid is None:
         return redirect('/login')
-    channel_name = request.form.get('channel-title')
-    channel = dbConnect.getChannelByName(channel_name)
-    if cahnnel == None:
-        channel_description = request.from.get('channel-description')
-        dbConnect.addChannel(uid, channel_name, channel_description)
+    channel_name = request.form.get('channel-title')    # チャンネル名を取得
+    channel = dbConnect.getChannelByName(channel_name)  # ???
+    if channel == None:
+        channel_description = request.form.get('channel-description')   # チャンネルの説明を取得
+        dbConnect.addChannel(uid, channel_name, channel_description)    # addChannel???
         return redirect('/')    # /ページにリダイレクトする
     else:
         error = '既に同じチャンネルが存在しています'
@@ -61,7 +60,7 @@ def update_channel():
     channel_name = request.form.get('channel-title')
     channel_description = request.form.get('channel-description')
 
-    res = dbConnect.updateChannel(uid, channel_name, channel_description, cid)
+    res = dbConnect.updateChannel(uid, channel_name, channel_description, cid)  # res???
     channel = dbConnect.getChannelById(cid)
     messages = dbConnect.getMessageAll(cid)
     return render_template('detail.html', messages=messages, channel=channel, uid=uid)
@@ -82,7 +81,7 @@ def delete_channel(cid):
         else:
             dbConnect.deleteChannel(cid)
             channels = dbConnect.getChannelAll()
-            return render_template('index.html', channels=chennels, uid=uid)
+            return render_template('index.html', channels=channels, uid=uid)
 
 
 # チャット機能
