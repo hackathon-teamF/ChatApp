@@ -134,4 +134,17 @@ def delete_message():
     return render_template('detail.html', messages=messages, channel=channel, uid=uid)
 
 
-# エラー追記
+# エラー
+@app.errorhandler(404)
+def show_error404(error):
+    return render_template('error/404.html')
+
+
+@app.errorhandler500(error)
+def show_error500(error):
+    return render_template('error/500.html')
+
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
