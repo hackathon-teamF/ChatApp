@@ -1,3 +1,17 @@
+import pymysql
+from util.DB import DB
+
+# 認証機能
+
+
+
+
+
+
+
+
+
+# チャンネル機能
 # チャンネル一覧機能
 def getChannelAll():
     try:    # try-except文（エラーの可能性がある処理に、例外処理を設定しておくことでプログラムを中断させない）
@@ -28,6 +42,47 @@ def getChannelById(cid):
     finally:
         cur.close()
 
+def getChannelByName(channel_name):
+    try:
+        conn = DB.getConnection()
+        cur = conn.cursor()
+        sql = "SELECT * FROM channels WHERE name=%s;"
+        cur.execute(sql, (channel_name))
+        channel = cur.fetchone()
+        return channel
+    except Exception as e:
+        print(e + 'が発生しています')
+        return None
+    finally:
+        cur.close()
+
+def addChannel(uid, newChannelName, newChannelDescription):
+    try:
+        conn = DB.getConnection()
+        cur = conn.cursor()
+        sql = "INSERT INTO channels (uid, name, abstract) VALUES(%s, %s, %s);"
+        cur.execute(sql, (uid, newChannelName, newChannelDescription))
+        conn.commit()
+    except Exception as e:
+        print(e + 'が発生しています')
+        return None
+    finally:
+        cur.close()
+
+def getChanenlByName(channel_name):     # なぜ2回書く？？
+    try:
+        conn = DB.getConnection()
+        cur = conn.cursor()
+        sql = "SELECT * FROM channels WHERE name=%s;"
+        cur.execute(sql, (channel_name))
+        channel = cur.fetchone()
+    except Exception as e:
+        print(e + 'が発生しました')
+        return None
+    finally:
+        cur.close()
+        return channel
+
 #チャンネル編集機能
 def updateChannel(uid, newChannelName, newChannelDescription, cid):
     conn = DB.getConnection()
@@ -53,20 +108,6 @@ def deleteChannel(cid):
 
 
 # チャット機能
-# メッセージ作成機能（データベースにメッセージを登録）
-def createMessage(uid, cid, message):
-    try:
-        conn = DB.getConnection()
-        cur = conn.cursor()
-        sql = "INSERT INTO messages(uid, cid, message) VALUE(%s, %s, %s)"   #messagesテーブルの各カラムに%s()を登録
-        cur.execute(sql, (uid, cid, message))
-        conn.commit()
-    except Exception as e:
-        print(e + 'が発生しています')
-        return None
-    finally:
-        cur.close()
-
 # メッセージ一覧機能
 def getMessageAll(cid):
     try:
@@ -76,6 +117,20 @@ def getMessageAll(cid):
         cur.excecute(sql, (cid))
         messages = cur.fetchall()
         return messages
+    except Exception as e:
+        print(e + 'が発生しています')
+        return None
+    finally:
+        cur.close()
+
+# メッセージ作成機能（データベースにメッセージを登録）
+def createMessage(uid, cid, message):
+    try:
+        conn = DB.getConnection()
+        cur = conn.cursor()
+        sql = "INSERT INTO messages(uid, cid, message) VALUE(%s, %s, %s)"   #messagesテーブルの各カラムに%s()を登録
+        cur.execute(sql, (uid, cid, message))
+        conn.commit()
     except Exception as e:
         print(e + 'が発生しています')
         return None
