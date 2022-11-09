@@ -16,7 +16,8 @@ CREATE TABLE users (
 
 CREATE TABLE channels (
     id serial PRIMARY KEY,
-    uid varchar(225) UNIQUE NOT NULL,
+    uid varchar(225) REFERENCES users(uid),
+    name varcher(255) UNIQUE NOT NULL,
     abstract varchar(225)
 );
 
