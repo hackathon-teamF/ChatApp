@@ -8,22 +8,22 @@ USE chatapp
 GRANT ALL PRIVILEGES ON chatapp.* TO 'testuser'@'localhost';    -- テストユーザーに全ての権限を与える
 
 CREATE TABLE users (
-    uid varchar(225) PRIMARY KEY,
-    user_name varchar(225) UNIQUE NOT NULL,
-    email varchar(225) UNIQUE NOT NULL,
-    password varchar(225) NOT NULL
+    uid varchar(255) PRIMARY KEY,
+    user_name varchar(255) UNIQUE NOT NULL,
+    email varchar(255) UNIQUE NOT NULL,
+    password varchar(255) NOT NULL
 );
 
 CREATE TABLE channels (
     id serial PRIMARY KEY,
-    uid varchar(225) REFERENCES users(uid),
+    uid varchar(255) REFERENCES users(uid),
     name varcher(255) UNIQUE NOT NULL,
-    abstract varchar(225)
+    abstract varchar(255)
 );
 
 CREATE TABLE messages (
     id serial PRIMARY KEY,
-    uid varchar(225) REFERENCES users(uid),
+    uid varchar(255) REFERENCES users(uid),
     cid integer REFERENCES channels(id) ON DELETE CASCADE,  -- ON〜〜は親表（channels）で行が削除されたら子表（messages）の対応行も削除
     message text,
     created_at timestamp not null default current_timestamp
