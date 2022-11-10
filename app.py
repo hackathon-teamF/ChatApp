@@ -86,56 +86,56 @@ def index():
     if uid is None:
         return redirect('/login')
     else:
-        channels = dbConnect.getChannelAll()
-    return render_template('index.html', channels=channels, uid=uid)
+        chatrooms = dbConnect.getChatroomAll()
+    return render_template('index.html', chatrooms=chatrooms, uid=uid)
 
 # チャンネル作成機能
 @app.route('/', methods=['POST'])   # http://xxx/が受け入れるメソッドをPOSTに指定
-def add_channel():
+def add_chatroom():
     uid = session.get('uid')
     if uid is None:
         return redirect('/login')
-    channel_name = request.form.get('channel-title')    # チャンネル名を取得
-    channel = dbConnect.getChannelByName(channel_name)  
-    if channel == None:
-        channel_description = request.form.get('channel-description')   # チャンネルの説明を取得
-        dbConnect.addChannel(uid, channel_name, channel_description) 
+    chatroom_name = request.form.get('chatroom-title')    # チャンネル名を取得
+    chatroom = dbConnect.getChatroomByName(chatroom_name)  
+    if chatroom == None:
+        chatroom_description = request.form.get('chatroom-description')   # チャンネルの説明を取得
+        dbConnect.addChatroom(uid, chatroom_name, chatroom_description) 
         return redirect('/')    # /ページにリダイレクトする
     else:
         error = '既に同じチャンネルが存在しています'
         return render_template('error/error.html', error_message=error) # error.htmlにerrorを代入して表示
 
 # チャンネル編集機能
-@app.route('/update_channel', methods=['POST'])
-def update_channel():
+@app.route('/update_chatroom', methods=['POST'])
+def update_chatroom():
     uid = session.get('uid')
     if uid is None:
         return redirect('/login')
     
     cid = request.form.get('cid')
-    channel_name = request.form.get('channel-title')
-    channel_description = request.form.get('channel-description')
+    chatroom_name = request.form.get('chatroom-title')
+    chatroom_description = request.form.get('chatroom-description')
 
-    res = dbConnect.updateChannel(uid, channel_name, channel_description, cid)  # res???
-    channel = dbConnect.getChannelById(cid)
+    res = dbConnect.updateChatroom(uid, chatroom_name, chatroom_description, cid)  # res???
+    chatroom = dbConnect.getChatroomById(cid)
     messages = dbConnect.getMessageAll(cid)
-    return render_template('detail.html', messages=messages, channel=channel, uid=uid)
+    return render_template('detail.html', messages=messages, chatroom=chatroom, uid=uid)
 
 # チャンネル削除機能
 @app.route('/delete/<cid>') # <cid>は引数
-def delete_channel(cid):
+def delete_chatroom(cid):
     uid = session.get('uid')
     if uid is None:
         return redirect('/login')
     else:
-        channel = dbConnect.getChannelById(cid)
-        if channel['uid'] != uid:   # チャンネル作成者ではなかったら
+        chatroom = dbConnect.getChatroomById(cid)
+        if chatroom['uid'] != uid:   # チャンネル作成者ではなかったら
             flash('チャンネルは作成者のみ削除可能です')
             return redirect ('/')
         else:
-            dbConnect.deleteChannel(cid)
-            channels = dbConnect.getChannelAll()
-            return render_template('index.html', channels=channels, uid=uid)
+            dbConnect.deleteChatroom(cid)
+            chatrooms = dbConnect.getChatroomAll()
+            return render_template('index.html', chatrooms=chatrooms, uid=uid)
 
 # uidもmessageと一緒に返す（？）
 @app.route('/detail/<cid>')
@@ -144,10 +144,10 @@ def detail(cid):
     if uid is None:
         return redirect('/login')
     cid = cid
-    channel = dbConnect.getChannelById(cid)
+    chatroom = dbConnect.getChatroomById(cid)
     messages = dbConnect.getMessageAll(cid)
 
-    return render_template('detail.html', messages=messages, channel=channel, uid=uid)
+    return render_template('detail.html', messages=messages, chatroom=chatroom, uid=uid)
 
 
 # チャット機能
@@ -159,15 +159,15 @@ def add_message():
         return redirect('/login')
     
     message = request.form.get('message')
-    channel_id = request.form.get('channel_id')
+    chatroom_id = request.form.get('chatroom_id')
 
     if message:     # ???
-        dbConnect.createMessage(uid, channel_id, message)
+        dbConnect.createMessage(uid, chatroom_id, message)
     
-    channel = dbConnect.getChannelById(channel_id)
-    messages = dbConnect.getMessageAll(channel_id)
+    chatroom = dbConnect.getChatroomById(chatroom_id)
+    messages = dbConnect.getMessageAll(chatroom_id)
 
-    return render_template('detail.html', messages=messages, chammel=channel, uid=uid)
+    return render_template('detail.html', messages=messages, chatroom=chatroom, uid=uid)
 
 # メッセージ一覧機能
 @app.route('/detail/<cid>')
@@ -176,10 +176,10 @@ def detail(cid):
     if uid is None:
         return redirect('/login')
     cid = cid
-    channel = dbConnect.getChannelById(cid)
+    chatroom = dbConnect.getChatroomById(cid)
     messages = dbConnect.getMessageAll(cid)
 
-    return render_template('detail.html', messages=messages, channel=channel, uid=uid)
+    return render_template('detail.html', messages=messages, chatroom=chatroom, uid=uid)
 
 # メッサージ削除機能
 @app.route('/delete_message', methods=['POST'])
@@ -189,14 +189,14 @@ def delete_message():
         return redirect('/login')
     
     message_id = request.form.get('message_id')
-    cid = request.form.get('channel_id')
+    cid = request.form.get('chatroom_id')
     if message_id:  #None以外の場合？
         dbConnect.deleteMessage(message_id)
     
-    channel = dbConnect.getChannelById(cid)
+    chatroom = dbConnect.getChatroomById(cid)
     messages = dbConnect.getMessageAll(cid)
 
-    return render_template('detail.html', messages=messages, channel=channel, uid=uid)
+    return render_template('detail.html', messages=messages, chatroom=chatroom, uid=uid)
 
 
 # エラー処理
