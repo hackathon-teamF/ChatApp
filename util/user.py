@@ -3,7 +3,7 @@ class User:
         self.uid = uid
         self.name = name
         self.email = email
-        self.password = passwprd
+        self.password = password
     
     def getUserName(self):
         return self.name
