@@ -1,5 +1,4 @@
-from django.shortcuts import redirect
-from flask import Flask, request, redirecy, render_template, session, flash # モジュールのインポート
+from flask import Flask, request, redirect, render_template, session, flash # モジュールのインポート
 from models import dbConnect
 from util.user import User
 from datetime import timedelta
@@ -9,7 +8,7 @@ import re  # 正規表現モジュール
 
 
 app = Flask(__name__)   # Webアプリ作成。Flaskクラスのインスタンスを作成し、それをappに代入。__name__はグローバル変数。
-app.secret.key = uuid.uuid4().hex   
+app.secret_key = uuid.uuid4().hex   
 app.permanent_session_lifetime = timedelta(days=30)
 
 
@@ -137,6 +136,8 @@ def delete_chatroom(cid):
             chatrooms = dbConnect.getChatroomAll()
             return render_template('index.html', chatrooms=chatrooms, uid=uid)
 
+# チャット機能
+# メッセージ一覧機能
 # uidもmessageと一緒に返す（？）
 @app.route('/detail/<cid>')
 def detail(cid):
@@ -149,8 +150,6 @@ def detail(cid):
 
     return render_template('detail.html', messages=messages, chatroom=chatroom, uid=uid)
 
-
-# チャット機能
 # メッセージ作成機能
 @app.route('/message', methods=['POST'])
 def add_message():
@@ -166,18 +165,6 @@ def add_message():
     
     chatroom = dbConnect.getChatroomById(chatroom_id)
     messages = dbConnect.getMessageAll(chatroom_id)
-
-    return render_template('detail.html', messages=messages, chatroom=chatroom, uid=uid)
-
-# メッセージ一覧機能
-@app.route('/detail/<cid>')
-def detail(cid):
-    uid = session.get('uid')
-    if uid is None:
-        return redirect('/login')
-    cid = cid
-    chatroom = dbConnect.getChatroomById(cid)
-    messages = dbConnect.getMessageAll(cid)
 
     return render_template('detail.html', messages=messages, chatroom=chatroom, uid=uid)
 
@@ -205,7 +192,7 @@ def show_error404(error):
     return render_template('error/404.html')
 
 
-@app.errorhandler500(error)
+@app.errorhandler(500)
 def show_error500(error):
     return render_template('error/500.html')
 
