@@ -1,5 +1,4 @@
 // モーダルを表示させる
-
 const addChannelModal = document.getElementById("btn-create-room");
 const deleteChannelModal = document.getElementById("delete-channel-modal");
 
@@ -24,7 +23,6 @@ addChannelBtn.addEventListener("click", () => {
 function modalOpen(mode) {
   if (mode === "add") {
     addChannelModal.style.display = "block";
-    console.log("add来てるよ");
   } else if (mode === "delete") {
     deleteChannelModal.style.display = "block";
   } else if (mode === "update") {
@@ -32,30 +30,30 @@ function modalOpen(mode) {
   }
 }
 
-// モーダル内のバツ印がクリックされた時
-//addPageButtonClose.addEventListener("click", () => {
-//  modalClose("add");
-//});
-//deletePageButtonClose.addEventListener("click", () => {
-//  modalClose("delete");
-//});
-//
-//function modalClose(mode) {
-//  if (mode === "add") {
-//    addChannelModal.style.display = "none";
-//  } else if (mode === "delete") {
-//    deleteChannelModal.style.display = "none";
-//  } else if (mode === "update") {
-//    updateChannelModal.style.display = "none";
-//  }
-//}
-//
-//// モーダルコンテンツ以外がクリックされた時
-//addEventListener("click", outsideClose);
-//function outsideClose(e) {
-//  if (e.target == addChannelModal) {
-//    addChannelModal.style.display = "none";
-//  } else if (e.target == deleteChannelModal) {
-//    deleteChannelModal.style.display = "none";
-//  }
-//}
+モーダル内のバツ印がクリックされた時;
+addPageButtonClose.addEventListener("click", () => {
+  modalClose("add");
+});
+deletePageButtonClose.addEventListener("click", () => {
+  modalClose("delete");
+});
+
+function modalClose(mode) {
+  if (mode === "add") {
+    addChannelModal.style.display = "none";
+  } else if (mode === "delete") {
+    deleteChannelModal.style.display = "none";
+  } else if (mode === "update") {
+    updateChannelModal.style.display = "none";
+  }
+}
+
+// モーダルコンテンツ以外がクリックされた時
+addEventListener("click", outsideClose);
+function outsideClose(e) {
+  if (e.target == addChannelModal) {
+    addChannelModal.style.display = "none";
+  } else if (e.target == deleteChannelModal) {
+    deleteChannelModal.style.display = "none";
+  }
+}
