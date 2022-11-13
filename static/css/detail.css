@@ -1,0 +1,95 @@
+body.body {
+  height: 100vh;
+}
+
+.room-container {
+  height: 97vh;
+}
+
+.message-container {
+  height: 80%;
+  padding: 2rem 5rem 0 5rem;
+  background: rgb(184, 234, 238);
+  margin-top: 1rem;
+  overflow-y: scroll;
+}
+
+.message-right {
+  position: relative;
+  background-color: green;
+  width: 50%;
+  margin: 1rem 0 0 auto;
+  padding: 1rem;
+  text-align: right;
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.message-left {
+  position: relative;
+  background-color: yellow;
+  width: 50%;
+  margin: 1rem auto 0 0;
+  padding: 1rem;
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+p {
+  font-size: 2.3rem;
+}
+
+.message-right::after {
+  content: "\f007";
+  font: var(--fa-font-solid);
+  position: absolute;
+  background-color: pink;
+  right: -42px;
+  border-radius: inherit;
+  padding: 6px;
+  font-size: 2.5rem;
+  top: 5%;
+}
+
+.message-left::before {
+  content: "\f007";
+  font: var(--fa-font-solid);
+  position: absolute;
+  left: -42px;
+  background-color: #ccffcc;
+  border-radius: inherit;
+  padding: 6px;
+  font-size: 2.5rem;
+  top: 5%;
+}
+
+.message-form {
+  height: 20%;
+}
+
+form {
+  display: flex;
+  margin-top: 2rem;
+  justify-content: flex-end;
+}
+
+input {
+  padding: 1rem;
+  margin-right: 2rem;
+  border-radius: 10px;
+  color: #868283;
+  width: 60%;
+  max-width: 800px;
+  font-size: 20px;
+}
+
+.btn-send-message {
+  margin: 1rem 1rem 0.5rem 0;
+  font-size: 2rem;
+  width: 150px;
+  padding: 10px;
+  color: #000;
+  background-color: bisque;
+  border-bottom: 5px solid #ccc100;
+  border-radius: 10px;
+}
