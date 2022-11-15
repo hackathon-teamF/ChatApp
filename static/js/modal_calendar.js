@@ -1,11 +1,14 @@
-const buttonOpen = document.getElementsByClassName("calendar-td");
+// const buttonOpen = document.getElementsByClassName("calendar-td");
 const modal = document.getElementById("easyModal");
-const buttonClose = document.getElementsByClassName("modalClose")[0];
+const buttonClose = document.getElementById("modalCloseButton");
+const submitButton = document.getElementById("sent-button");
 
 // ボタンがクリックされた時
-buttonOpen.addEventListener("click", modalOpen);
-function modalOpen() {
+function modalOpen(date) {
   modal.style.display = "block";
+  const dateInput = document.getElementById("date-input");
+  dateInput.value = date;
+  console.log(dateInput.value);
 }
 
 // バツ印がクリックされた時

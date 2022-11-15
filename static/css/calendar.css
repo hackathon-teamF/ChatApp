@@ -87,3 +87,8 @@ td.is-disabled {
   padding: 10px 20px;
   color: black;
 }
+
+.active-cell,
+#modalCloseButton {
+  cursor: pointer;
+}
