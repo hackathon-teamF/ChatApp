@@ -1,0 +1,121 @@
+body {
+  /* background-image:url(../img/AdobeStock_227776485\ 2.jpeg);
+  background-size:100%; */
+  margin: 0px;
+}
+#singup-img {
+height: 835px;
+width: 1530px;
+background-image: url(../img/AdobeStock_227776485.jpeg);
+background-size: 100%;
+}
+
+
+#singup-box {
+    position: absolute;
+    padding: 10px 20px ;
+    top: 30px;
+
+
+}
+
+#message-1 {
+  text-align: right;
+  font-size: 60px;
+  font-family:Arial, Helvetica, sans-serif;
+  color: yellow;
+  position: absolute;
+  padding: 40px;
+  left: 800px;
+  top: 140px;
+
+}
+
+#message-2 {
+  text-align: right;
+  font-size: 60px;
+  font-family:Arial, Helvetica, sans-serif;
+  color: yellow;
+  position: absolute;
+  padding: 40px;
+  left: 800px;
+  top: 250px;
+
+}
+
+#singup-box-2 {
+  background-color: ivory;
+  margin: 0px 30px;
+  border-radius: 10px;
+  opacity: 0.9;
+  width: 500px;
+  text-align: center;
+}
+
+#singup-title {
+    margin-top: 40px;
+    padding-top: 10px;
+    color: orange;
+    font-size: 30px;
+    text-align: center;
+}
+
+input {
+  display: flex;
+  text-align: left;
+  width: 200px;
+  /* margin: 30px 300px; */
+  margin: 30px 100px 10px 100px;
+
+  border-bottom: 1px solid #ccc;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+input::placeholder {
+  width: 160px;
+}
+
+
+.input-area {
+  display: block;
+  text-align: center;
+  line-height: 150px;
+  height: 200px;
+  padding: 0px 30px 30px 30px;
+  margin-bottom: 60px;
+}
+
+.registration-form {
+    margin:0px;
+    padding-bottom:80px ;
+}
+
+#input-1 {
+  padding: 5px 0px;
+}
+#input-2 {
+  padding: 5px 0px;
+}
+#input-3 {
+  padding: 5px 0px;
+}
+#input-4 {
+  padding: 5px 0px;
+}
+
+.singup-button {
+  margin-top: 20px;
+  font-size: 30px;
+  border-radius: 10px;
+  border: 4px;
+  width: 150px;
+  background-color: orange;
+  color:rgb(251, 250, 247);
+}
+
+.singup-button:hover {
+  background-color: rgb(243, 12, 173);
+  transform: scale(1.1);
+  cursor: pointer;
+}

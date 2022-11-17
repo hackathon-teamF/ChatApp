@@ -1,6 +1,18 @@
-@import "normalize.css";
+/* @import "color.css";
 @import "base.css";
-@import "index.css";
+@import "main.css";
 @import "detail.css";
 @import "registration.css";
+@import "sidebar.css";
+@import "mobile-header.css";
+@import "modal.css"; */
+@import "color.css";
+@import "base.css";
+@import "index.css";
+@import "main.css";
+@import "chatroom.css";
+@import "registration.css";
+@import "sidebar.css";
+@import "mobile-header.css";
 @import "modal.css";
+@import "detail.css"
