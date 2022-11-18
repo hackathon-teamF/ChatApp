@@ -47,14 +47,14 @@ class dbConnect:
 
 # チャンネル機能
 # チャンネル一覧機能
-def getChannelAll():
+def getChatroomAll():
     try:    # try-except文（エラーの可能性がある処理に、例外処理を設定しておくことでプログラムを中断させない）
         conn = DB.getConnection()   # データベースに接続
         cur = conn.cursor() # カーソルを取得(取得結果からデータを1件ずつ抜き取るための仕組み)
-        sql = "SELECT * FROM channels;" #SQL文を実行
+        sql = "SELECT * FROM chatrooms;" #SQL文を実行
         cur.excute(sql)
-        channels = cur.fetchall()   #FETCH=データベースから取得したデータを1件ずつ参照する機能
-        return channels
+        chatrooms = cur.fetchall()   #FETCH=データベースから取得したデータを1件ずつ参照する機能
+        return chatrooms
     except Exception as e:
         print(e +'が発生しています')
         return None
@@ -62,40 +62,40 @@ def getChannelAll():
         cur.close()
 
 # チャンネル作成機能
-def getChannelById(cid):
+def getChatroomById(cid):
     try:
         conn = DB.getConnection()
         cur = conn.cursor()
-        sql = "SELECT * FROM channels WHERE id=%s;"
+        sql = "SELECT * FROM chatrooms WHERE id=%s;"
         cur.execute(sql, (cid))
-        channel = cur.fetchone()    # *で全件取得した後、その中の1件だけをプログラム的に取得
-        return channel
+        chatroom = cur.fetchone()    # *で全件取得した後、その中の1件だけをプログラム的に取得
+        return chatroom
     except Exception as e:
         print(e + 'が発生しています')
         return None
     finally:
         cur.close()
 
-def getChannelByName(channel_name):
+def getChatroomByName(chatroom_name):
     try:
         conn = DB.getConnection()
         cur = conn.cursor()
-        sql = "SELECT * FROM channels WHERE name=%s;"
-        cur.execute(sql, (channel_name))
-        channel = cur.fetchone()
-        return channel
+        sql = "SELECT * FROM chatrooms WHERE name=%s;"
+        cur.execute(sql, (chatroom_name))
+        chatroom = cur.fetchone()
+        return chatroom
     except Exception as e:
         print(e + 'が発生しています')
         return None
     finally:
         cur.close()
 
-def addChannel(uid, newChannelName, newChannelDescription):
+def addChatroom(uid, newChatroomName, newChatroomDescription):
     try:
         conn = DB.getConnection()
         cur = conn.cursor()
-        sql = "INSERT INTO channels (uid, name, abstract) VALUES(%s, %s, %s);"
-        cur.execute(sql, (uid, newChannelName, newChannelDescription))
+        sql = "INSERT INTO chatrooms (uid, name, abstract) VALUES(%s, %s, %s);"
+        cur.execute(sql, (uid, newChatroomName, newChatroomDescription))
         conn.commit()
     except Exception as e:
         print(e + 'が発生しています')
@@ -103,35 +103,35 @@ def addChannel(uid, newChannelName, newChannelDescription):
     finally:
         cur.close()
 
-def getChanenlByName(channel_name):     # なぜ2回書く？？
+def getChanenlByName(chatroom_name):     # なぜ2回書く？？
     try:
         conn = DB.getConnection()
         cur = conn.cursor()
-        sql = "SELECT * FROM channels WHERE name=%s;"
-        cur.execute(sql, (channel_name))
-        channel = cur.fetchone()
+        sql = "SELECT * FROM chatrooms WHERE name=%s;"
+        cur.execute(sql, (chatroom_name))
+        chatroom = cur.fetchone()
     except Exception as e:
         print(e + 'が発生しました')
         return None
     finally:
         cur.close()
-        return channel
+        return chatroom
 
 #チャンネル編集機能
-def updateChannel(uid, newChannelName, newChannelDescription, cid):
+def updateChatroom(uid, newChatroomName, newChatroomDescription, cid):
     conn = DB.getConnection()
     cur = conn.cursor()
-    sql = "UPDATE channels SET uid=%s, name=%s, abstract=%s WHERE id=%s;"
-    cur.execute(sql, (uid, newChannelName, newChannelDescription, cid))
+    sql = "UPDATE chatrooms SET uid=%s, name=%s, abstract=%s WHERE id=%s;"
+    cur.execute(sql, (uid, newChatroomName, newChatroomDescription, cid))
     conn.commit()
     cur.close()
 
 # チャンネル削除機能
-def deleteChannel(cid):
+def deleteChatroom(cid):
     try:
         conn = DB.getConnection()
         cur = conn.cursor()
-        sql = "DELETE FROM channels WHERE id=%s;"
+        sql = "DELETE FROM chatrooms WHERE id=%s;"
         cur.excute(sql, (cid))
         conn.commit()
     except Exception as e:
