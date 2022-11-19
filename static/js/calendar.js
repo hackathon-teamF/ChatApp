@@ -11,40 +11,55 @@ function createCalendar(year, month) {
   const lastMonthEndCount = lastMonthEndDay.getDate(); //前月の末日
   const startDay = monthStart.getDay(); // 月の最初の日の曜日を取得 weeksのindex番号
   let dayCount = 1; // 日にちのカウント
-  let calendarHtml = ""; // htmlのテーブル作成用
-  calendarHtml += "<h1>" + year + "/" + month + "</h1>";
-  calendarHtml += "<table>";
+  let calendarArea = document.getElementById("calendar");
+  const table = document.createElement("table");
+  const tBody = document.createElement("tBody");
 
   // 曜日の行を作成
   for (let week = 0; week < weeks.length; week++) {
-    calendarHtml += "<th>" + weeks[week] + "</th>";
+    const tHeader = document.createElement("th");
+    tHeader.innerHTML = weeks[week];
   }
 
   //カレンダー全体の行作成
   for (let w = 0; w < 6; w++) {
-    calendarHtml += "<tr>";
-
+    // calendar += "<tr>";
+    const row = document.createElement("tr");
     //カレンダー全体の列作成
     for (let d = 0; d < 7; d++) {
+      const cell = document.createElement("td");
       //月初よりも前の場合
       if (w == 0 && d < startDay) {
         let num = lastMonthEndCount - startDay + d + 1;
-        calendarHtml += '<td class="is-disabled">' + num + "</td>";
+        cell.classList.add("is-disabled");
+        cell.innerHTML = num;
+
         //月末よりも後の場合
       } else if (dayCount > endDay) {
         let num = dayCount - endDay;
-        calendarHtml += '<td class="is-disabled">' + num + "</td>";
+        cell.classList.add("is-disabled");
+        cell.innerHTML = num;
         dayCount++;
       } else {
-        calendarHtml += `<td class="calendar-td" data-date="${year}/${month}/${dayCount}">${dayCount}</td>`;
+        const date = `${year}/${month}/${dayCount}`; 
+				console.log(date)
+        cell.dataset.date = date;
+        cell.innerText = dayCount;
+        cell.classList.add("active-cell");
+        calendar += cell;
+        cell.addEventListener("click", function (e) {
+          modalOpen(e.target.dataset.date);
+        });
         dayCount++;
       }
+      row.appendChild(cell);
     }
-    calendarHtml += "</tr>";
+    tBody.appendChild(row);
   }
-  calendarHtml += "</table>";
+  table.appendChild(tBody);
 
-  document.querySelector("#calendar").innerHTML = calendarHtml;
+  calendar += "<h1>" + year + "/" + month + "</h1>";
+  calendarArea.appendChild(table);
 }
 
 createCalendar(year, month);
@@ -75,9 +90,3 @@ function moveCalendar(e) {
 
 document.querySelector("#prev").addEventListener("click", moveCalendar);
 document.querySelector("#next").addEventListener("click", moveCalendar);
-
-document.addEventListener("click", function (e) {
-  if (e.target.classList.contains("calendar-td")) {
-    alert("クリックした日付は" + e.target.dataset.date + "です");
-  }
-});
