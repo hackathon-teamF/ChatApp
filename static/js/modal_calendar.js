@@ -1,4 +1,3 @@
-// const buttonOpen = document.getElementsByClassName("calendar-td");
 const modal = document.getElementById("easyModal");
 const buttonClose = document.getElementById("modalCloseButton");
 const submitButton = document.getElementById("sent-button");

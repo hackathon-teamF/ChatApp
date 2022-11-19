@@ -41,14 +41,14 @@ function createCalendar(year, month) {
         cell.innerHTML = num;
         dayCount++;
       } else {
-        const date = `${year}/${month}/${dayCount}`;
+        const date = `${year}/${month}/${dayCount}`; 
+				console.log(date)
         cell.dataset.date = date;
         cell.innerText = dayCount;
         cell.classList.add("active-cell");
         calendar += cell;
         cell.addEventListener("click", function (e) {
           modalOpen(e.target.dataset.date);
-          console.log(e);
         });
         dayCount++;
       }
