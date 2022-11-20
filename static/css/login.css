@@ -1,0 +1,153 @@
+body {
+  margin: 0px 0px 0px 0px;
+}
+
+
+#back-color {
+  background-color: ivory;
+  height: 800px;
+  width: 1530px;
+  padding-top: 40px;
+}
+#logo {
+  /* background-color: rgb(242, 247, 186);
+  height: 40px; */
+  margin-top: 0px;
+  font-size: 20px;
+
+}
+#right-display {
+  display: flex;
+  width:calc(100%);
+  box-sizing: border-box;
+  height: 600px;
+  width: 100%;
+}
+
+#back-image {
+  background-image:url(../img/AdobeStock_309411605.jpeg);
+  background: linear-gradient(to top, rgba(234, 218, 234, 0.7) 0%, rgba(151, 217, 225, 0.7) 100%),url(../img/AdobeStock_480395626.jpeg);
+  background-size: 1000px;
+  top: 0%;
+  width: 58%;
+  height: 600px;
+ position: relative;
+ 
+}
+
+#right-box {
+  width: 600px;
+  height: 600px;
+}
+
+p {
+  text-align: center;
+  font-size: 50px;
+  padding-bottom: 20px;
+  margin-top: 380px;
+  color: ivory;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+#login-title {
+/* display: flex; */
+text-align: center;
+margin: 120px 0px 60px 0px;
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+font-size: 60px;
+color: rgb(241, 145, 10);
+}
+
+input {
+  /* display: flex; */
+  text-align: left;
+  margin: auto;
+  width: 180px;
+  border-bottom: 1px solid #ccc;
+  border-top: none;
+  border-right: none;
+  border-left: none;
+}
+input::placeholder {
+  width: 100px;
+}
+
+.green {
+  margin: auto;
+  align-items: center;
+  border: 4px;
+  font-size: large;
+  border-radius: 10px;
+  padding: 5px;
+  width: 120px;
+  background-color: rgb(230, 147, 12);
+  color:rgb(251, 250, 247);
+}
+
+.green:hover {
+  background-color: rgb(243, 12, 173);
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+#input-box {
+  display: flex;
+  margin-left: 100px;
+  padding: 0px;
+}
+
+#input-box2 {
+  /* display: flex; */
+  margin-left: 100px;
+  padding: 0px;
+}
+
+#button-box {
+  display: flex;
+  padding: 0px;
+  margin: 60px 0px 0px 0px;
+  padding-top: 20px;
+}
+
+
+#singup-button {
+  display: block;
+  text-align: center;
+  padding-top: 20px;
+}
+
+.switch-register-mode {
+  width: 200px;
+  font-size: 60px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-style: oblique;
+  color: rgb(245, 213, 7);
+  text-decoration: none;
+  font-weight: 300;
+}
+
+img {
+  margin: 30px 0px 0px 150px;
+}
+
+
+.sin {
+  margin: auto;
+  align-items: center;
+  border: 4px;
+  font-size: large;
+  border-radius: 3px;
+  display: flex;
+  background-color: ivory;
+}
+
+#under-color {
+  background-color: rgb(250, 250, 184);
+  height: 50px;
+}
+
+#under-color2 {
+  background-color: rgb(248, 209, 135);
+  height: 50px;
+}
+
