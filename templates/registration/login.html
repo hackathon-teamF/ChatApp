@@ -11,16 +11,22 @@
     </div>
     <div id="right-box">
       <div id="login-title">Welcome Docoico</div>
-      <div class="registration-wrapper login">
-        <form class="registration-form" method="post">
+      <div id="login-box">
+        <form class="registration-form2" method="post">
           <div id="input-box">
             <input type="text" placeholder="Email" name="email" />
           </div>
+          <div id="input-box2">
           <input type="password" placeholder="Password" name="password" />
+          </div>
           <div id="button-box"><button class="green">ログイン</button></div>
         </form>
       </div>
-      <div id="singup-button"><button class="sin">sing up</button></div>
+      <div id="singup-button">
+        <a class="switch-register-mode" href="{{ url_for('signup') }}">
+        singup
+      </a>
+    </div>
     </div>
   </div>
   <!-- <div id="under-color"></div>
@@ -35,11 +41,11 @@
               </ul>
             {% endif %}
           {% endwith %}
-          <div id="ccc">
+          <!-- <div id="ccc">
          <a class="switch-register-mode" href="{{ url_for('signup') }}">
             singup
           </a>
-        </div>
+        </div> -->
         </form>
       </div>
       <!-- <div id="ccc"><button class="sin">singup</button></div> -->
