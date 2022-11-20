@@ -7,6 +7,7 @@ class DB:
             host="localhost",
             db="cahtapp",
             user="testuser",
+            password="testuser",
             charset="utf-8",
             cursorclass=pymysql.cursors.DiscCursor
         )
