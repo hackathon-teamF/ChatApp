@@ -26,9 +26,8 @@ chatroom
 		</div>
 		<div class="message-form">
 			<form action="/message" method="POST">
-				<input type="hidden" name="channel_id" id="input-message" value="{{ channel.id }}" />
 				<textarea name="message" id="message" autofocus></textarea>
-				<input  value="{{ channel.id }}">
+				<input type="hidden" name="channel_id" id="input-message" value="{{ channel.id }}" />
 				<button class="btn-send-message" id="add-message-btn" type="submit">
 					送信
 				</button>
