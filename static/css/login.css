@@ -5,8 +5,8 @@ body {
 
 #back-color {
   background-color: ivory;
-  height: 800px;
-  width: 1530px;
+  height: 100%;
+  width: 100%;
   padding-top: 40px;
 }
 #logo {
@@ -52,7 +52,7 @@ p {
 #login-title {
 /* display: flex; */
 text-align: center;
-margin: 120px 0px 60px 0px;
+margin: 80px 0px 60px 0px;
 font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 font-size: 60px;
 color: rgb(241, 145, 10);
