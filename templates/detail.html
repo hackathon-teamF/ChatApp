@@ -25,9 +25,7 @@
 			{% endif %}
 		</div>
 		<div class="message-form">
-			<button id="btn-calendar">
-				<a href="../templates/calendar.html"> <!-- url_for('calendar') -->
-			</button>
+				<a id="btn-calendar" href="{{ url_for('calendar') }}"></a>
 			<form id="form" action="/message" method="POST">
 				<textarea name="message" id="message" autofocus></textarea>
 				<input type="hidden" name="channel_id" id="input-message" value="{{ channel.id }}" />
