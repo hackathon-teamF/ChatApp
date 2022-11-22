@@ -5,9 +5,9 @@ class DB:
         try:
             conn = pymysql.connect(
             host="localhost",
-            db="cahtapp",
+            db="chatapp",
             user="testuser",
-            charset="utf-8",
+            charset="utf8",
             cursorclass=pymysql.cursors.DiscCursor
         )
             return conn

@@ -19,7 +19,7 @@ class dbConnect:
     def getUserId(email):
         try:
             conn = DB.getConnection()
-            cur = conn.cusor()
+            cur = conn.cursor()
             sql = "SELECT uid FROM users WHERE email=%s;"
             cur.execute(sql, (email))
             id = cur.fetchone()
@@ -33,7 +33,7 @@ class dbConnect:
     def getUser(email):
         try:
             conn = DB.getConnection()
-            cur = conn.corsor()
+            cur = conn.cursor()
             sql = "SELECT * FROM users WHERE email=%s;"
             cur.execute(sql, (email))
             user = cur.fetchone()
