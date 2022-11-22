@@ -24,7 +24,9 @@ CREATE TABLE chatrooms (
 CREATE TABLE messages (
     id serial PRIMARY KEY,
     uid varchar(255) REFERENCES users(uid),
+
     cid integer REFERENCES chatrooms(id) ON DELETE CASCADE,  -- ON〜〜は親表（chatrooms）で行が削除されたら子表（messages）の対応行も削除
+
     message text,
     created_at timestamp not null default current_timestamp
 );

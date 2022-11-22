@@ -163,10 +163,12 @@ def add_message():
     if message:     # ???
         dbConnect.createMessage(uid, chatroom_id, message)
     
+
     chatroom = dbConnect.getChatroomById(chatroom_id)
     messages = dbConnect.getMessageAll(chatroom_id)
 
     return render_template('detail.html', messages=messages, chatroom=chatroom, uid=uid)
+
 
 # メッサージ削除機能
 @app.route('/delete_message', methods=['POST'])
