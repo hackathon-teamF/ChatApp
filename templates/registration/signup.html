@@ -3,21 +3,42 @@
   <title>signup</title>
 {% endblock %}
 {% block body %}
-  <div class="registration-wrapper signup">
-    <div class="registration-main signup-main">
-      SIGNUP
-      <div class="half-circle pink">
-        <form class="registration-form" method="post">
-          <h1 class="registration-title">SIGN UP</h1>
-          <input type="text" placeholder="Name" name="name" />
-          <input type="text" placeholder="Email" name="email" />
-          <input type="password" placeholder="Password" name="password1" />
-          <input
-            type="password"
-            placeholder="Password Confirmation"
-            name="password2"
-          />
-          <button class="pink">SIGN UP</button>
+<div id="singup-img">
+  <div id="message-1">"みんなと繋がる"</div>
+  <div id="message-2">"みんなと出掛ける"</div>
+  <div id="singup-box">
+    <div id="singup-box-2">
+      <div id="singup-title"><h1>SIGN UP</h1></div>
+      <form class="registration-form" method="post">
+        <div class="input-area">
+          <div id="input-1">
+            <input type="text" placeholder="Name" name="name" />
+          </div>
+          <div id="input-2">
+            <input type="text" placeholder="Email" name="email" />
+          </div>
+          <div id="input-3">
+            <input
+              type="password"
+              placeholder="Password"
+              name="password1"
+            />
+          </div>
+          <div id="input-4">
+            <input
+              type="password"
+              placeholder="Password Confirmation"
+              name="password2"
+            />
+          </div>
+        </div>
+        <button class="singup-button">SIGN UP</button>
+        <ul class="flashes"></ul>
+        <a class="switch-register-mode" href="{{ url_for('login') }}"> </a>
+      </form>
+    </div>
+  </div>
+</div>
           {% with messages = get_flashed_messages() %}
             {% if messages %}
               <ul class="flashes">
@@ -27,11 +48,9 @@
               </ul>
             {% endif %}
           {% endwith %}
-          <a class="switch-register-mode" href="{{ url_for('login') }}">
+          <div id="ggg"><a class="switch-register-mode" href="{{ url_for('login') }}">
           Already have an account?
-          </a>
+          </a></div>
         </form>
       </div>
-    </div>
-  </div>
 {% endblock %}

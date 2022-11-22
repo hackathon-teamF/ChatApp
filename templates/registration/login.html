@@ -3,16 +3,36 @@
   <title>login</title>
 {% endblock %}
 {% block body %}
-  <div class="registration-wrapper login">
-    <div class="registration-main login-main">
-      LOGIN
-      <div class="half-circle green">
-        <form class="registration-form" method="post">
-          <h1 class="registration-title">LOG IN</h1>
-          <input type="text" placeholder="Email" name="email" />
+<div id="back-color">
+  <div id="logo">Docoico(ロゴ)</div>
+  <div id="right-display">
+    <div id="back-image">
+      <p>chat✖️scheduler</p>
+    </div>
+    <div id="right-box">
+      <div id="login-title">Welcome Docoico</div>
+      <div id="login-box">
+        <form class="registration-form2" method="post">
+          <div id="input-box">
+            <input type="text" placeholder="Email" name="email" />
+          </div>
+          <div id="input-box2">
           <input type="password" placeholder="Password" name="password" />
-          <button class="green">LOG IN</button>
-          {% with messages = get_flashed_messages() %}
+          </div>
+          <div id="button-box"><button class="green">ログイン</button></div>
+        </form>
+      </div>
+      <div id="singup-button">
+        <a class="switch-register-mode" href="{{ url_for('signup') }}">
+        singup
+      </a>
+    </div>
+    </div>
+  </div>
+  <div id="under-color"></div>
+  <div id="under-color2"></div>
+</div>
+            {% with messages = get_flashed_messages() %}
             {% if messages %}
               <ul class="flashes">
                 {% for message in messages %}
@@ -21,11 +41,14 @@
               </ul>
             {% endif %}
           {% endwith %}
-          <a class="switch-register-mode" href="{{ url_for('signup') }}">
-            Not registered yet?
+          <!-- <div id="ccc">
+         <a class="switch-register-mode" href="{{ url_for('signup') }}">
+            singup
           </a>
+        </div> -->
         </form>
       </div>
-    </div>
-  </div>
+      <!-- <div id="ccc"><button class="sin">singup</button></div> -->
+    <!-- </div>
+  </div> -->
 {% endblock %}
