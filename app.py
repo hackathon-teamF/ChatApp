@@ -63,13 +63,13 @@ def userLogin():
         if user is None:
             flash('このユーザーは存在しません')
         else:
-            hashPassword = hashlib.sha256(password.encode(utf-8)).hexdigest()
+            hashPassword = hashlib.sha256(password.encode('utf-8')).hexdigest()
             if hashPassword != user["password"]:
                 flash('パスワードが間違っています！')
             else:
                 session['uid'] = user["uid"]
                 return redirect('/')
-            return redirect('/login')
+    return redirect('/login')
 
 @app.route('/logout')
 def logout():
@@ -115,7 +115,7 @@ def update_chatroom():
     chatroom_name = request.form.get('chatroom-title')
     chatroom_description = request.form.get('chatroom-description')
 
-    res = dbConnect.updateChatroom(uid, chatroom_name, chatroom_description, cid)  # res???
+    dbConnect.updateChatroom(uid, chatroom_name, chatroom_description, cid)  # res???
     chatroom = dbConnect.getChatroomById(cid)
     messages = dbConnect.getMessageAll(cid)
     return render_template('detail.html', messages=messages, chatroom=chatroom, uid=uid)

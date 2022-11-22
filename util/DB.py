@@ -5,11 +5,11 @@ class DB:
         try:
             conn = pymysql.connect(
             host="localhost",
-            db="cahtapp",
+            db="chatapp",
             user="testuser",
             password="testuser",
-            charset="utf-8",
-            cursorclass=pymysql.cursors.DiscCursor
+            charset="utf8",
+            cursorclass=pymysql.cursors.DictCursor
         )
             return conn
         except (ConnectionError):
