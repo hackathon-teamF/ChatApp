@@ -29,7 +29,7 @@ def userSignup():
     if name == '' or email == '' or password1 == '' or password2 == '':
         flash('空のフォームがあるようです')
     elif password1 != password2:
-        flash('二つのパスワードの値が間違っています')
+        flash('二つのパスワードの値が違っています')
     elif re.match(pattern, email) is None:
         flash('正しいメールアドレスの形式ではありません')
     else:
@@ -76,12 +76,11 @@ def logout():
     session.clear()
     return redirect('/login')
 
-
 # チャンネル機能
 # チャンネル一覧機能
 @app.route('/') # ルーティング（URLにアクセスするとindex()の関数が実行される）。http://xxx 以降のURLパスを '/' と指定している。
 def index():
-    uid = session.get('uid')    #格納済みのセッション変数からuidを取得
+    uid = session.get("uid")    #格納済みのセッション変数からuidを取得
     if uid is None:
         return redirect('/login')
     else:
@@ -107,7 +106,7 @@ def add_chatroom():
 # チャンネル編集機能
 @app.route('/update_chatroom', methods=['POST'])
 def update_chatroom():
-    uid = session.get('uid')
+    uid = session.get("uid")
     if uid is None:
         return redirect('/login')
     
@@ -123,12 +122,12 @@ def update_chatroom():
 # チャンネル削除機能
 @app.route('/delete/<cid>') # <cid>は引数
 def delete_chatroom(cid):
-    uid = session.get('uid')
+    uid = session.get("uid")
     if uid is None:
         return redirect('/login')
     else:
         chatroom = dbConnect.getChatroomById(cid)
-        if chatroom['uid'] != uid:   # チャンネル作成者ではなかったら
+        if chatroom["uid"] != uid:   # チャンネル作成者ではなかったら
             flash('チャンネルは作成者のみ削除可能です')
             return redirect ('/')
         else:
@@ -141,7 +140,7 @@ def delete_chatroom(cid):
 # uidもmessageと一緒に返す（？）
 @app.route('/detail/<cid>')
 def detail(cid):
-    uid = session.get('uid')
+    uid = session.get("uid")
     if uid is None:
         return redirect('/login')
     cid = cid
@@ -173,7 +172,7 @@ def add_message():
 # メッサージ削除機能
 @app.route('/delete_message', methods=['POST'])
 def delete_message():
-    uid = session.get('uid')
+    uid = session.get("uid")
     if uid is None:
         return redirect('/login')
     
@@ -187,6 +186,10 @@ def delete_message():
 
     return render_template('detail.html', messages=messages, chatroom=chatroom, uid=uid)
 
+# カレンダー表示
+@app.route('/detail/calendar')
+def calendar():
+    return render_template('google-calenndar.html')
 
 # エラー処理
 @app.errorhandler(404)

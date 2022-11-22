@@ -7,8 +7,9 @@ class DB:
             host="localhost",
             db="chatapp",
             user="testuser",
+            password="testuser",
             charset="utf8",
-            cursorclass=pymysql.cursors.DiscCursor
+            cursorclass=pymysql.cursors.DictCursor
         )
             return conn
         except (ConnectionError):

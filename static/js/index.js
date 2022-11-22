@@ -1,5 +1,5 @@
 const step = 3; //1ページの表示数
-let total_Pages = Math.floor(channels.length / step) + 1; //総ページ数
+let total_Pages = Math.floor(chatrooms.length / step) + 1; //総ページ数
 let current_Page = 1; //現在のページ
 
 //ページネーション
@@ -27,12 +27,12 @@ const make_Chatroom_List = (page, step) => {
   const room_Ul = document.getElementById("roomlist");
   //ulを空に
   room_Ul.innerHTML = "";
-  channels.forEach((channel, index) => {
+  chatrooms.forEach((chatroom, index) => {
     if (index < first_Room - 1 || index > end_Room - 1) return;
     const room_Li = document.createElement("li");
     const room_Anchor = document.createElement("a");
-    const url = `/detail/${channel.id}`;
-    room_Anchor.innerText = channel.name;
+    const url = `/detail/${chatroom.id}`;
+    room_Anchor.innerText = chatroom.name;
     room_Anchor.setAttribute("href", url);
     room_Li.appendChild(room_Anchor);
     room_Ul.appendChild(room_Li);

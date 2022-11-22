@@ -1,36 +1,49 @@
-{% extends 'base.html' %} {% block title %}
+{% extends 'base.html' %} 
+{% block title %}
 <title>chatroom</title>
-{% endblock %} {% block body %}
+{% endblock %}
+{% block body %}
 <main>
-  <div class="room-container">
-    <div class="message-container">
-      <!-- 自分のメッセージと相手のメッセージでクラスを分ける -->
-    </div>
-    <div class="message-form">
-      <form action="/message" method="POST">
-				<input type="text" name="message" id="input-message" value="{{ channel.id }}" />
-        <button class="btn-send-message" id="add-message-btn" type="submit" name="message">
-          送信
-        </button>
-      </form>
-    </div>
-  </div>
+	<div class="room-container">
+		<div id="message-container">
+			<!-- 自分のメッセージと相手のメッセージでクラスを分ける -->
+			{% if messages|length > 0 %}
+				{% for message in messages %}
+					{% if message.uid == uid %}
+					<div class="my-messages">
+						<p class="message-right">{{ message.message }}</p>
+					</div>
+					{% else %}
+					<div class="messages">
+						<p class="user-name">{{ message.user_name }}</p>
+						<p class="message-left">{{ message.message }}</p>
+					</div>
+					{% endif %}
+				{% endfor %}
+			{% else %}
+			<div><p>まだメッセージがありません</p></div>
+			{% endif %}
+		</div>
+		<div class="message-form">
+				<a id="btn-calendar" href="{{ url_for('calendar') }}"></a>
+			<form id="form" action="/message" method="POST">
+				<textarea name="message" id="message" autofocus></textarea>
+				<input type="hidden" name="chatroom_id" id="input-message" value="{{ chatroom.id }}" />
+				<button id="add-message-btn" type="submit">
+					送信
+				</button>
+			</form>
+		</div>
+	</div>
 </main>
-{% endblock %} {% block script %}
+{% endblock %}
+{% block script %}
 <script type="text/javascript">
-  const channel = JSON.parse("{{ channel|tojson }}");
-  const uid = JSON.parse("{{ uid|tojson }}");
+	const chatroom = JSON.parse("{{ chatroom|tojson }}");
+	const uid = JSON.parse("{{ uid|tojson }}");
 </script>
 <script
-  src="{{url_for('static',filename='js/scroll-message.js')}}"
-  type="text/javascript"
-></script>
-<!--  <script
-    src="{{url_for('static',filename='js/update-channel.js')}}"
-    type="text/javascript"
-  ></script> -->
-<script
-  src="{{url_for('static',filename='js/modal.js')}}"
-  type="text/javascript"
-></script>
+		src="{{url_for('static',filename='js/chatroom.js')}}"
+		type="text/javascript"
+		></script>
 {% endblock %}
