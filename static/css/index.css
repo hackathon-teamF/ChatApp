@@ -1,9 +1,18 @@
+body {
+  background-color: ivory;
+}
+
+.chatroom {
+  display: flex;
+}
+
 .container {
-  background: rgb(184, 234, 238);
-  height: 70vh;
-  min-height: 60vh;
-  width: 60vw;
-  margin: 10rem auto;
+  background: rgb(248, 248, 166);
+  height: 60vh;
+  width: 40vw;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 20px;
   border-radius: 10px;
   display: flex;
   flex-direction: column;
@@ -11,19 +20,20 @@
 }
 
 h1.container-title {
-  font-size: 3rem;
-  color: white;
-  text-shadow: 1px 1px 0 #000;
+  font-size: 4rem;
+  color: rgb(240, 158, 16);
+  text-shadow: 1px 1px 0 rgb(212, 209, 209);
   margin-top: 5rem;
 }
 
-ul#roomlist {
+ul.roomlist {
   display: flex;
   flex-direction: column;
   margin-top: 3rem;
+  margin-bottom: 40px;
 }
 
-ul#roomlist > li {
+ul.roomlist > li {
   font-size: 3rem;
   margin: 1rem;
 }
@@ -34,16 +44,15 @@ ul#roomlist > li {
   justify-content: center;
   font-size: 1.5rem;
   width: 100%;
-  margin-top: 20px;
 }
 
-ul#pagination {
+ul.pagination {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-ul#pagination > li {
+ul.pagination > li {
   font-size: 1.5rem;
   margin: 0 1rem;
 }
@@ -56,19 +65,109 @@ ul#pagination > li {
   margin-left: 3rem;
 }
 
-button#btn-create-room {
+#button-room {
+  display: flex;
+}
+
+button#add-channel-btn {
+  font-family: Georgia, "Times New Roman", Times, serif;
   margin-top: 40px;
+  margin: 30px 30px;
   font-size: 2rem;
   width: 150px;
   padding: 10px;
-  color: #000;
-  background-color: bisque;
-  border-bottom: 5px solid #ccc100;
+  color: rgb(249, 246, 246);
+  background-color: orange;
+  border-radius: 20px;
+  border: 2px;
+  /* border-bottom: 5px solid #ccc100; */
+}
+
+button#add-channel-btn:hover {
+  margin-top: 40px;
+  margin: 30px 30px;
+  color: black;
+  background: rgb(241, 15, 162);
+  border-bottom: 2px solid #ccc100;
+}
+
+button#btn-create-room {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  margin-top: 40px;
+  margin: 30px 30px;
+  font-size: 2rem;
+  width: 150px;
+  padding: 10px;
+  color: rgb(249, 246, 246);
+  background-color: orange;
+  border-radius: 20px;
+  border: 2px;
+  /* border-bottom: 5px solid #ccc100; */
 }
 
 button#btn-create-room:hover {
-  margin-top: 43px;
+  margin-top: 40px;
+  margin: 30px 30px;
   color: black;
-  background: bisque;
+  background: rgb(241, 15, 162);
   border-bottom: 2px solid #ccc100;
+}
+
+#picture {
+  display: flex;
+  text-align: center;
+}
+
+#picture-1 {
+  background-image: url(../img/AdobeStock_533596030.jpeg);
+  background-size: 100%;
+  height: 200px;
+  width: 300px;
+  margin: 0px 20px 0px 95px;
+  padding-top: 150px;
+  color: ivory;
+  font-size: 25px;
+  text-shadow: 1px 1px 0 rgb(212, 209, 209);
+  text-decoration: underline;
+  opacity: 0.7;
+}
+#picture-2 {
+  background-image: url(../img/AdobeStock_309920077_Editorial_Use_Only.jpeg);
+  background-size: 100%;
+  height: 200px;
+  width: 300px;
+  margin: 0px 20px;
+  padding-top: 150px;
+  color: ivory;
+  font-size: 25px;
+  text-shadow: 1px 1px 0 rgb(212, 209, 209);
+  text-decoration: underline;
+  opacity: 0.7;
+}
+
+#picture-3 {
+  background-image: url(../img/AdobeStock_139879326.jpeg);
+  background-size: 100%;
+  height: 200px;
+  width: 300px;
+  margin: 0px 20px;
+  padding-top: 150px;
+  color: ivory;
+  font-size: 25px;
+  text-shadow: 1px 1px 0 rgb(212, 209, 209);
+  text-decoration: underline;
+  opacity: 0.7;
+}
+#picture-4 {
+  background-image: url(../img/AdobeStock_264412156.jpeg);
+  background-size: 100%;
+  height: 200px;
+  width: 300px;
+  margin: 0px 20px;
+  padding-top: 150px;
+  color: ivory;
+  font-size: 25px;
+  text-shadow: 1px 1px 0 rgb(212, 209, 209);
+  text-decoration: underline;
+  opacity: 0.7;
 }
