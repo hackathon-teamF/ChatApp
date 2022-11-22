@@ -63,7 +63,7 @@ def userLogin():
         if user is None:
             flash('このユーザーは存在しません')
         else:
-            hashPassword = hashlib.sha256(password.encode(utf-8)).hexdigest()
+            hashPassword = hashlib.sha256(password.encode('utf-8')).hexdigest()
             if hashPassword != user["password"]:
                 flash('パスワードが間違っています！')
             else:
