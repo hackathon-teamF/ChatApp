@@ -1,11 +1,11 @@
 
-DROP DATABASE chatapp;      -- 一回削除？
+DROP DATABASE chatapp;
 DROP USER 'testuser'@'localhost';
 
-CREATE USER 'testuser'@'localhost' IDENTIFIED BY 'testuser';    -- パスワード（testuser）を指定してユーザー作成
+CREATE USER 'testuser'@'localhost' IDENTIFIED BY 'testuser';
 CREATE DATABASE chatapp;
 USE chatapp
-GRANT ALL PRIVILEGES ON chatapp.* TO 'testuser'@'localhost';    -- テストユーザーに全ての権限を与える
+GRANT ALL PRIVILEGES ON chatapp.* TO 'testuser'@'localhost';
 
 CREATE TABLE users (
     uid varchar(255) PRIMARY KEY,
@@ -14,23 +14,21 @@ CREATE TABLE users (
     password varchar(255) NOT NULL
 );
 
-CREATE TABLE chatrooms (
+CREATE TABLE channels (
     id serial PRIMARY KEY,
     uid varchar(255) REFERENCES users(uid),
-    name varcher(255) UNIQUE NOT NULL,
+    name varchar(255) UNIQUE NOT NULL,
     abstract varchar(255)
 );
 
 CREATE TABLE messages (
     id serial PRIMARY KEY,
     uid varchar(255) REFERENCES users(uid),
-
-    cid integer REFERENCES chatrooms(id) ON DELETE CASCADE,  -- ON〜〜は親表（chatrooms）で行が削除されたら子表（messages）の対応行も削除
-
+    cid integer REFERENCES channels(id) ON DELETE CASCADE,
     message text,
     created_at timestamp not null default current_timestamp
 );
 
 INSERT INTO users(uid, user_name, email, password)VALUES('970af84c-dd40-47ff-af23-282b72b7cca8','テスト','test@gmail.com','37268335dd6931045bdcdf92623ff819a64244b53d0e746d438797349d4da578');
-INSERT INTO chatrooms(id, uid, name, abstract)VALUES(1, '970af84c-dd40-47ff-af23-282b72b7cca8','ぼっち部屋','テストさんの孤独な部屋です');
-INSERT INTO messages(id, uid, cid, message)VALUES(1, '970af84c-dd40-47ff-af23-282b72b7cca8', '1', '誰かかまってください、、')
+INSERT INTO channels(id, uid, name, abstract)VALUES(1, '970af84c-dd40-47ff-af23-282b72b7cca8','熱海旅行','テストさんの孤独な部屋です');
+INSERT INTO messages(id, uid, cid, message)VALUES(1, '970af84c-dd40-47ff-af23-282b72b7cca8', '1', 'そうだ、熱海へいこう！！')
