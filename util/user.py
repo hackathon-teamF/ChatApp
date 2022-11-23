@@ -7,9 +7,10 @@ class User:
     
     def getUserName(self):
         return self.name
-    
+
     def getUserEmail(self):
         return self.email
     
     def getUserPassword(self):
         return self.password
+    
