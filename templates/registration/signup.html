@@ -33,24 +33,19 @@
           </div>
         </div>
         <button class="singup-button">SIGN UP</button>
-        <ul class="flashes"></ul>
-        <a class="switch-register-mode" href="{{ url_for('login') }}"> </a>
-      </form>
+        <div id="ggg"><a class="switch-register-mode2" href="{{ url_for('login') }}">
+          ログイン画面に戻ります
+          </a></div>
+          {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <ul class="flashes">
+            {% for message in messages %}
+            <li>{{ message }}</li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+      {% endwith %}
+      </form>  
     </div>
   </div>
 </div>
-          {% with messages = get_flashed_messages() %}
-            {% if messages %}
-              <ul class="flashes">
-                {% for message in messages %}
-                <li>{{ message }}</li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-          {% endwith %}
-          <div id="ggg"><a class="switch-register-mode" href="{{ url_for('login') }}">
-          Already have an account?
-          </a></div>
-        </form>
-      </div>
-{% endblock %}

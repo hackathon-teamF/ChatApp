@@ -1,11 +1,7 @@
 body {
   margin: 0px;
-}
-#singup-img {
-height: 835px;
-width: 1530px;
-background-image: url(../img/AdobeStock_227776485.jpeg);
-background-size: 100%;
+  background-image: url(../img/AdobeStock_227776485.jpeg);
+  background-size: 100%;
 }
 
 
@@ -62,7 +58,6 @@ input {
   display: flex;
   text-align: left;
   width: 200px;
-  /* margin: 30px 300px; */
   margin: 30px 100px 10px 100px;
 
   border-bottom: 1px solid #ccc;
@@ -86,7 +81,7 @@ input::placeholder {
 
 .registration-form {
     margin:0px;
-    padding-bottom:80px ;
+    padding-bottom:40px ;
 }
 
 #input-1 {
@@ -104,6 +99,7 @@ input::placeholder {
 
 .singup-button {
   margin-top: 10px;
+  margin-bottom: 20px;
   font-size: 30px;
   border-radius: 10px;
   border: 4px;
@@ -116,4 +112,28 @@ input::placeholder {
   background-color: rgb(243, 12, 173);
   transform: scale(1.1);
   cursor: pointer;
+}
+
+.switch-register-mode2 {
+  width: 200px;
+  font-size: 20px;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-style: oblique;
+  color: rgb(245, 213, 7);
+  font-weight: 300;
+  margin-top: 20px;
+}
+
+.switch-register-mode2:hover {
+  color: rgb(243, 12, 173);
+}
+
+.flashes {
+  text-align: center;
+  margin: auto;
+  margin-top: 20px;
+  margin-right: 20px;
+  font-size: 30px;
+  list-style: none;
+  color:rgb(243, 12, 173) ;
 }
