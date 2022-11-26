@@ -50,7 +50,6 @@ p {
 }
 
 #login-title {
-/* display: flex; */
 text-align: center;
 margin: 80px 0px 60px 0px;
 font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -58,25 +57,27 @@ font-size: 60px;
 color: rgb(241, 145, 10);
 }
 
-input {
-  /* display: flex; */
+#input-login {
   text-align: left;
   margin: auto;
-  width: 250px;
+  margin-bottom: 40px;
+  width: 300px;
+  height: 25px;
   border-bottom: 1px solid #ccc;
   border-top: none;
   border-right: none;
   border-left: none;
 }
-input::placeholder {
+#input-login::placeholder {
   width: 100px;
+  font-size: 17px;
 }
 
 .green {
   margin: auto;
   align-items: center;
   border: 4px;
-  font-size: large;
+  font-size: 28px;
   border-radius: 10px;
   padding: 5px;
   width: 120px;
@@ -93,7 +94,6 @@ input::placeholder {
 #input-box {
   display: flex;
   width: 50%;
-  /* text-align: center; */
   margin: auto;
   padding: 0px;
 }
@@ -108,7 +108,7 @@ input::placeholder {
 #button-box {
   display: flex;
   padding: 0px;
-  margin: 60px 0px 0px 0px;
+  margin: 35px 0px 0px 0px;
   padding-top: 20px;
 }
 
