@@ -33,6 +33,8 @@
           </div>
         </div>
         <button class="singup-button">SIGN UP</button>
+        <!-- <ul class="flashes"></ul>
+        <a class="switch-register-mode" href="{{ url_for('login') }}"> </a> -->
         <div id="ggg"><a class="switch-register-mode2" href="{{ url_for('login') }}">
           ログイン画面に戻ります
           </a></div>
@@ -45,7 +47,10 @@
           </ul>
         {% endif %}
       {% endwith %}
-      </form>  
+      </form>
+      
+        
     </div>
   </div>
 </div>
+{% endblock %}

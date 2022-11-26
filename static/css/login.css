@@ -5,7 +5,7 @@ body {
 #logo {
   background-color: ivory;
   margin-left: 0%;
-  margin-top: 0%;
+  margin-top: 70px;
 }
 
 #back-color {
@@ -50,6 +50,7 @@ p {
 }
 
 #login-title {
+/* display: flex; */
 text-align: center;
 margin: 80px 0px 60px 0px;
 font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -58,6 +59,7 @@ color: rgb(241, 145, 10);
 }
 
 input {
+  /* display: flex; */
   text-align: left;
   margin: auto;
   width: 250px;
@@ -91,6 +93,7 @@ input::placeholder {
 #input-box {
   display: flex;
   width: 50%;
+  /* text-align: center; */
   margin: auto;
   padding: 0px;
 }

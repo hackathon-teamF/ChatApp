@@ -90,26 +90,6 @@ button#add-channel-btn:hover {
   border-bottom: 2px solid #ccc100;
 }
 
-button#btn-create-room {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  margin-top: 40px;
-  margin: 10px 30px;
-  font-size: 2rem;
-  width: 150px;
-  padding: 10px;
-  color: rgb(249, 246, 246);
-  background-color: orange;
-  border-radius: 20px;
-  border: 2px;
-}
-
-button#btn-create-room:hover {
-  margin-top: 40px;
-  margin: 10px 30px;
-  transform: scale(1.1);
-  background: rgb(241, 15, 162);
-  border-bottom: 2px solid #ccc100;
-}
 
 #picture {
   display: flex;
