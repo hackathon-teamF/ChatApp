@@ -1,11 +1,11 @@
 // モーダルを表示させる
-const addChannelModal = document.getElementById("btn-create-room");
+const addChannelModal = document.getElementById("add-channel-modal");
 const deleteChannelModal = document.getElementById("delete-channel-modal");
 
 const addPageButtonClose = document.getElementById("add-page-close-btn");
 const deletePageButtonClose = document.getElementById("delete-page-close-btn");
 
-const addChannelBtn = document.getElementById("btn-create-room");
+const addChannelBtn = document.getElementById("add-channel-btn");
 
 const addChannelConfirmBtn = document.getElementById(
   "add-channel-confirmation-btn"
@@ -15,7 +15,7 @@ const deleteChannelConfirmBtn = document.getElementById(
 );
 
 // モーダルを開く
-// <button id="btn-create-room">チャンネル追加</button>ボタンがクリックされた時
+// <button id="add-channel-btn">チャンネル追加</button>ボタンがクリックされた時
 addChannelBtn.addEventListener("click", () => {
   modalOpen("add");
 });
@@ -30,7 +30,7 @@ function modalOpen(mode) {
   }
 }
 
-モーダル内のバツ印がクリックされた時;
+// モーダル内のバツ印がクリックされた時
 addPageButtonClose.addEventListener("click", () => {
   modalClose("add");
 });

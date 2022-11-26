@@ -1,4 +1,4 @@
-const step = 3; //1ページの表示数
+const step = 4; //1ページの表示数
 let total_Pages = Math.floor(channels.length / step) + 1; //総ページ数
 let current_Page = 1; //現在のページ
 
