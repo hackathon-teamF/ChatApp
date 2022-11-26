@@ -9,8 +9,7 @@ body.body {
 #message-container {
   height: 80%;
   padding: 2rem 5rem 2rem 5rem;
-  background: rgb(184, 234, 238);
-  margin-top: 1rem;
+  background: #ffe4c4;
   overflow-y: scroll;
 }
 
@@ -98,27 +97,26 @@ p {
 
 #add-message-btn {
   margin: 1rem 1rem 0.5rem 0;
-  font-size: 2rem;
+  font-size: 3rem;
   width: 150px;
+  color: white;
+  background-color: orange;
   padding: 10px;
-  color: #000;
-  background-color: bisque;
-  border-bottom: 5px solid #ccc100;
   border-radius: 10px;
 }
 
 #btn-calendar {
   border: none;
   margin: 10px 0 0 50px;
-  padding: 0 20px;
+  padding: 0 56px;
   height: 80px;
   line-height: 1;
-  color: #3366cc;
+  color: white;
   font-size: 5em;
   border-radius: 20px;
   cursor: pointer;
-  background: rgb(184, 234, 238);
-  border: 0.2em solid rgb(184, 234, 238);
+  background: #005fff;
+  border: 0.2em solid #005fff;
 }
 
 #btn-calendar::before {
@@ -128,5 +126,4 @@ p {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f073";
-  margin-right: 5px;
 }
