@@ -4,22 +4,22 @@
 {% endblock %}
 {% block body %}
 <div id="back-color">
-  <div id="logo">Docoico(ロゴ)</div>
+  <img src="{{url_for('static',filename='img/Group 3 (1).png')}}" alt="aaa" id="logo">
   <div id="right-display">
     <div id="back-image">
-      <p>chat✖️scheduler</p>
+      <p>chat × scheduler ☞ どこ行く？</p>
     </div>
     <div id="right-box">
       <div id="login-title">Welcome Docoico</div>
       <div id="login-box">
         <form class="registration-form2" method="post">
           <div id="input-box">
-            <input type="text" placeholder="Email" name="email" />
+            <input id="input-login" type="text" placeholder="Email" name="email" />
           </div>
           <div id="input-box2">
-          <input type="password" placeholder="Password" name="password" />
+          <input id="input-login" type="password" placeholder="Password" name="password" />
           </div>
-          <div id="button-box"><button class="green">ログイン</button></div>
+          <div id="button-box"><button class="green"> Login</button></div>
         </form>
       </div>
       <div id="singup-button">

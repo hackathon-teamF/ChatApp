@@ -2,20 +2,19 @@ body {
   margin: 0px 0px 0px 0px;
 }
 
+#logo {
+  background-color: ivory;
+  margin-left: 0%;
+  margin-top: 70px;
+}
 
 #back-color {
   background-color: ivory;
-  height: 100%;
-  width: 100%;
-  padding-top: 40px;
+  height: 100vw;
+  width: 100vw;
+  padding-top: 10px;
 }
-#logo {
-  /* background-color: rgb(242, 247, 186);
-  height: 40px; */
-  margin-top: 0px;
-  font-size: 20px;
 
-}
 #right-display {
   display: flex;
   width:calc(100%);
@@ -29,14 +28,15 @@ body {
   background: linear-gradient(to top, rgba(234, 218, 234, 0.7) 0%, rgba(151, 217, 225, 0.7) 100%),url(../img/AdobeStock_480395626.jpeg);
   background-size: 1000px;
   top: 0%;
-  width: 58%;
+  width: 50%;
+  max-width: 50%;
   height: 600px;
  position: relative;
  
 }
 
 #right-box {
-  width: 600px;
+  width: 50%;
   height: 600px;
 }
 
@@ -50,7 +50,6 @@ p {
 }
 
 #login-title {
-/* display: flex; */
 text-align: center;
 margin: 80px 0px 60px 0px;
 font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -58,25 +57,27 @@ font-size: 60px;
 color: rgb(241, 145, 10);
 }
 
-input {
-  /* display: flex; */
+#input-login {
   text-align: left;
   margin: auto;
-  width: 180px;
+  margin-bottom: 40px;
+  width: 300px;
+  height: 25px;
   border-bottom: 1px solid #ccc;
   border-top: none;
   border-right: none;
   border-left: none;
 }
-input::placeholder {
+#input-login::placeholder {
   width: 100px;
+  font-size: 17px;
 }
 
 .green {
   margin: auto;
   align-items: center;
   border: 4px;
-  font-size: large;
+  font-size: 28px;
   border-radius: 10px;
   padding: 5px;
   width: 120px;
@@ -92,20 +93,22 @@ input::placeholder {
 
 #input-box {
   display: flex;
-  margin-left: 100px;
+  width: 50%;
+  margin: auto;
   padding: 0px;
 }
 
 #input-box2 {
-  /* display: flex; */
-  margin-left: 100px;
+  display: flex;
+  width: 50%;
+  margin: auto;
   padding: 0px;
 }
 
 #button-box {
   display: flex;
   padding: 0px;
-  margin: 60px 0px 0px 0px;
+  margin: 35px 0px 0px 0px;
   padding-top: 20px;
 }
 
@@ -126,6 +129,10 @@ input::placeholder {
   font-weight: 300;
 }
 
+.switch-register-mode:hover {
+  color: rgb(243, 12, 173);
+}
+
 img {
   margin: 30px 0px 0px 150px;
 }
@@ -143,11 +150,13 @@ img {
 
 #under-color {
   background-color: rgb(250, 250, 184);
-  height: 50px;
+  height: 5%;
+  max-height: 10%;
 }
 
 #under-color2 {
   background-color: rgb(248, 209, 135);
-  height: 50px;
+  height: 5%;
+  max-height: 10%;
 }
 
