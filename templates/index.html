@@ -16,13 +16,22 @@
 			</ul>
 			<p id="next">>></p>
 		</div>
-		<div class="create-room">
-			<button id="btn-create-room">ルーム作成</button>
-		</div>
+    <div id="button-room">
+      <div class="create-room">
+        <button id="add-channel-btn">新規作成</button>
+      </div>
+  </div>
+</div>
+</main>
+  <div id="picture">
+    <a id="picture-1" href="https://www.tour.ne.jp/j_special/ranking/" target="_blank" rel="noreferrer noopener">国内旅行</a>
+    <a id="picture-2" href="https://rtrp.jp/locations/38/categories/9999/" target="_blank" rel="noreferrer noopener"" target="_blank" rel="noreferrer noopener">観光名所</a>
+    <a id="picture-3" href="https://www.kankokeizai.com/index_100sen/" target="_blank" rel="noreferrer noopener">温泉</a>
+    <a id="picture-4" href="https://www.tour.ne.jp/w_special/world/ranking/" target="_blank" rel="noreferrer noopener">海外旅行</a>
+    </div>
 		{% include 'modal/add-channel.html' %}
 		{% include 'modal/delete-confirmation.html' %}
-	</div>
-</main>
+	
 {% endblock %}
 {% block script %}
 <script type="text/javascript">
